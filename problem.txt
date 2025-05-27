@@ -1,0 +1,148 @@
+PROB 1
+
+const [ , , honda ] = cars;  // Destructuration en sautant les 2 premiers éléments
+console.log(honda);  // 'Honda'
+
+
+PROB 2
+
+const employee = { employeeName: 'Elon', age: 47, company: 'Tesla' };
+const { employeeName: otherName } = employee;
+
+console.log(otherName); // 'Elon' 
+// console.log(employeeName); // NE PAS UTILISER (erreur)
+
+
+PROB 3
+const person = {
+    name: 'Phil Smith',
+    age: 47,
+    height: '6 feet',
+    password: 'abc123' // Ajouté
+};
+const password = '12345';
+const { password: hashedPassword } = person;  
+
+console.log(password); // '12345' (inchangé)
+console.log(hashedPassword); // 'abc123' (maintenant défini)
+
+
+
+PROB 4
+
+
+const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
+const [, first] = numbers; 
+const [,,, second] = numbers; 
+const [,,,,,,,, third] = numbers; 
+const [,,,, fourthIndexValue] = numbers; 
+
+console.log(first === second); 
+console.log(first === third); 
+console.log(fourthIndexValue); 
+
+
+
+PROB 5
+
+const lastTest = {
+    key: 'value',
+    secondKey: [1, 5, 1, 8, 3, 3]
+};
+
+const { key } = lastTest;
+const { secondKey } = lastTest;
+
+const [ , willThisWork] = secondKey;
+
+const lastValue = secondKey[secondKey.length - 1];
+
+console.log(key);           
+console.log(secondKey);      
+console.log(secondKey[0]);   
+console.log(willThisWork);   
+console.log(lastValue);    
+
+
+
+
+
+PROB 6
+
+const beatles = ['Paul', 'George', 'John', 'Ringo'];
+
+function printNames(names) {
+  function actuallyPrintingNames() {
+    for (let index = 0; index < names.length; index++) {
+      const name = names[index];
+      console.log(`${name} was found at index ${index}`);
+    }
+    console.log(name); 
+     console.log(index); 
+  }
+  actuallyPrintingNames();
+}
+
+printNames(beatles);
+
+
+
+PROB 7
+
+function actuallyPrintingNames(names) { 
+  let name;  
+  let index; 
+  
+  for (index = 0; index < names.length; index++) {
+    name = names[index];
+    console.log(name + ' was found at index ' + index);
+  }
+  console.log('name and index after loop is ' + name + ':' + index);
+}
+
+
+PROB  8
+
+const beatles = ['Paul', 'George', 'John', 'Ringo'];
+
+function printNames(names) {
+  function actuallyPrintingNames() {
+    for (let index = 0; index < names.length; index++) {
+      const name = names[index];
+      console.log(`${name} was found at index ${index}`);
+    }
+  }
+  actuallyPrintingNames();
+}
+
+printNames(beatles);
+
+
+
+PROB 9
+
+
+// Objet planet original
+const planet = {
+  name: "Jupiter",
+  milesFromSun: 49849,
+  mass: 393983,
+  composition: ["gas", "liquid", "oxygen"]
+};
+
+const planetCopy = {...planet};
+
+console.log(planet.composition[0] === planetCopy.composition[0]); // true
+
+console.log(planet === planetCopy); // false
+
+planetCopy.composition.push("hydrogen");
+console.log(planet.composition); // ["gas", "liquid", "oxygen", "hydrogen"]
+
+
+
+
+
+
+
+  
